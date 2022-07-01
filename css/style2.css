@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fresca', sans-serif;
+}
+:root{
+    --bgc: rgb(5, 64, 112);
+}
+body{
+    background-color: var(--bgc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.minu{
+    width:400px;
+    height: 70px;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+}
+.minu ul{
+    display: flex;
+    width: 350px;
+}
+.minu ul li{
+    list-style: none;
+    position: relative;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+.minu ul a{
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+.minu ul a .icon{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--bgc);
+}
+.minu ul li.active a .icon{
+   transform: translateY(-32px);
+}
+.minu ul li a .text{
+    position: absolute;
+    font-weight: 600;
+    font-size: 1em;
+    color: var(--bgc);
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.minu ul li.active a .text{
+    opacity: 1;
+    transform: translateY(10px);
+}
+.bg{
+    position: absolute;
+    top: -50%;
+    background-color: goldenrod;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 6px solid var(--bgc);
+    transition: 0.5s;
+}
+.bg::before{
+    content: "";
+    position: absolute;
+    top:50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background-color:transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 var(--bgc);
+}
+.bg::after{
+    content: "";
+    position: absolute;
+    top:50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background-color:transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 var(--bgc);
+}
+.minu ul li:nth-child(1).active ~ .bg{
+    transform: translateX(calc(70px * 0));
+}
+.minu ul li:nth-child(2).active ~ .bg{
+    transform: translateX(calc(70px * 1));
+}
+.minu ul li:nth-child(3).active ~ .bg{
+    transform: translateX(calc(70px * 2));
+}
+.minu ul li:nth-child(4).active ~ .bg{
+    transform: translateX(calc(70px * 3));
+}
+.minu ul li:nth-child(5).active ~ .bg{
+    transform: translateX(calc(70px *4));
+}
